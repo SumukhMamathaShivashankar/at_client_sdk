@@ -11,6 +11,7 @@ class TestUtils {
     preference.privateKey = demo_credentials.pkamPrivateKeyMap[atsign];
     preference.rootDomain = 'vip.ve.atsign.zone';
     preference.decryptPackets = false;
+    preference.namespace = "wavi";
     preference.pathToCerts = 'test/testData/cert.pem';
     preference.tlsKeysSavePath = 'test/tlsKeysFile';
     return preference;

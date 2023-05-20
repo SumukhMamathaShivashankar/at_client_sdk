@@ -7,7 +7,7 @@ Future<void> setEncryptionKeys(
     String atsign, AtClientPreference atClientPreference) async {
   try {
     final atClientManager = await AtClientManager.getInstance()
-        .setCurrentAtSign(atsign, 'me', atClientPreference);
+        .setCurrentAtSign(atsign, 'wavi', atClientPreference);
     var atClient = atClientManager.atClient;
     var metadata = Metadata();
     metadata.namespaceAware = false;
@@ -21,10 +21,8 @@ Future<void> setEncryptionKeys(
 
     // set encryption public key. should be synced
     var encryptionPublicKey = '$AT_ENCRYPTION_PUBLIC_KEY$atsign';
-    result = await atClient
-        .getLocalSecondary()!.putValue(
-        encryptionPublicKey,
-        demo_credentials.encryptionPublicKeyMap[atsign]!);
+    result = await atClient.getLocalSecondary()!.putValue(
+        encryptionPublicKey, demo_credentials.encryptionPublicKeyMap[atsign]!);
     print('Setting encryption public key: $result');
 
     // set self encryption key

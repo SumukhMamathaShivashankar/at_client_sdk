@@ -25,9 +25,10 @@ void main() {
       ..key = 'phone'
       ..sharedWith = '@bob🛠';
     var value = '+1 100 200 300';
-    var putResult = await atClient.put(phoneKey, value);
+    var putResult =
+        await atClient.put(phoneKey, value); //putting values to server
     expect(putResult, true);
-    var getResult = await atClient.get(phoneKey);
+    var getResult = await atClient.get(phoneKey); //getting keys
     expect(getResult.value, value);
   });
 
